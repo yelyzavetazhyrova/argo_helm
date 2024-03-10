@@ -18,7 +18,8 @@ jobs:
       #   uses: docker/setup-buildx-action@v2
       - name: Build
         run: |
-          echo IMAGE_TAG=yelyzavetazhyrova/helm:$(date +%s)  >> $GITHUB_ENV
+          IMAGE_TAG=yelyzavetazhyrova/helm:$(date +%s)
+          echo IMAGE_TAG=$IMAGE_TAG  >> $GITHUB_ENV
           docker build . --file Dockerfile --tag ${{ env.IMAGE_TAG }}
       - name: Login to Docker Hub
         uses: docker/login-action@v2
