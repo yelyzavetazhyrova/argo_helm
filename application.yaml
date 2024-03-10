@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/yelyzavetazhyrova/argo_helm.git
-    tergetRevision: HEAD
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: flask-argocd-namespace
