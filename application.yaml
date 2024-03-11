@@ -6,6 +6,7 @@ metadata:
 spec:
   project: default
   source:
+    path: chart
     repoURL: https://github.com/yelyzavetazhyrova/argo_helm.git
     targetRevision: HEAD
   destination:
@@ -16,4 +17,4 @@ spec:
     - CreateNamespace=true
     automated:
       selfHeal: true
-      prune: true  # deletes component if it is deleted from code
+      prune: true

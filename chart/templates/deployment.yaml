@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.deployment_name}}
+  labels:
+      release: {{ .Release.Name }}-flask
+spec:
+  selector:
+    matchLabels:
+      app: flask
+  replicas: {{.Values.replicas}}
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: yelyzavetazhyrova/helm:{{.Values.container.image_tag}}
+        ports:
+        - name: http
+          containerPort: 8080
+          hostPort: 8080
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: regcred
